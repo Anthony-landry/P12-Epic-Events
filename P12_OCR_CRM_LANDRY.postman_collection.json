@@ -1,0 +1,770 @@
+{
+	"info": {
+		"_postman_id": "d7d0a9e0-3e9c-4534-90f4-8459527fb25f",
+		"name": "P12_OCR_CRM_LANDRY",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29043877"
+	},
+	"item": [
+		{
+			"name": "Create new user (Gestion / Vente / Support)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMTI4ODYzLCJpYXQiOjE3MDMwNjg4NjMsImp0aSI6Ijc4M2ZlN2MxYTQ3NTRiMmE5NjJkMjQ0NGE3NjNmMmFiIiwidXNlcl9pZCI6MX0.wnhWx-dCyshILnZ3Z9WUgEuIsx4HoPT2ERgAaRrmPWc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "Hugo@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abcd.1234",
+							"type": "text"
+						},
+						{
+							"key": "group",
+							"value": "3",
+							"description": "Groupe 1 : Gestion, Groupe 2 Vente, Groupe 3 : Support",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "Boss",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "Gestion",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/accounts/users/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"accounts",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk5OTQ0NTY2LCJpYXQiOjE2OTk4ODQ1NjYsImp0aSI6IjZjOTM0MGY5Y2MwNTRlNGE4OTg2MTA4ZWNiOGY3YzliIiwidXNlcl9pZCI6NX0.mxwubKMW1PMUXYBkhjl8fDaKppY93B_2eMGvKaeyLDk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "manager@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abcd.1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Acces a user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMjI1ODMzLCJpYXQiOjE3MDMxNjU4MzMsImp0aSI6IjFhYzgwZDY2YWEzNzQ1YmZhNGNhNGJkMDczYWI0ZWQ3IiwidXNlcl9pZCI6NzZ9.5XjCVi3Hq2nFKXmRM4DfSIbpLXBdESqFvbUFh1TGEBI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "sales@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abcd.1234",
+							"type": "text"
+						},
+						{
+							"key": "group",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "sales",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/accounts/users/75/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"accounts",
+						"users",
+						"75",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify a user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMTI4ODYzLCJpYXQiOjE3MDMwNjg4NjMsImp0aSI6Ijc4M2ZlN2MxYTQ3NTRiMmE5NjJkMjQ0NGE3NjNmMmFiIiwidXNlcl9pZCI6MX0.wnhWx-dCyshILnZ3Z9WUgEuIsx4HoPT2ERgAaRrmPWc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "Hugo@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abcd.1234",
+							"type": "text"
+						},
+						{
+							"key": "group",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/accounts/users/5/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"accounts",
+						"users",
+						"5",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk5ODYyMTcwLCJpYXQiOjE2OTk4MDIxNzAsImp0aSI6ImQ2YmZmNDkzMGYzMzRmNGQ5MGJjN2UwMTQ3ZmQxNjQ3IiwidXNlcl9pZCI6NX0.0DxCBhE-ksVL1HOgz-CoLhqWO-6EmGGhLb8pwbntxe4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/accounts/users/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"accounts",
+						"users",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a client",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMTI4ODYzLCJpYXQiOjE3MDMwNjg4NjMsImp0aSI6Ijc4M2ZlN2MxYTQ3NTRiMmE5NjJkMjQ0NGE3NjNmMmFiIiwidXNlcl9pZCI6MX0.wnhWx-dCyshILnZ3Z9WUgEuIsx4HoPT2ERgAaRrmPWc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "first_name",
+							"value": "premier",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "client",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "premierclient@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "0306060606",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "0606060606",
+							"type": "text"
+						},
+						{
+							"key": "company_name",
+							"value": "Company name",
+							"type": "text"
+						},
+						{
+							"key": "sales_contact",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/accounts/clients/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"accounts",
+						"clients",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List the clients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMTI4ODYzLCJpYXQiOjE3MDMwNjg4NjMsImp0aSI6Ijc4M2ZlN2MxYTQ3NTRiMmE5NjJkMjQ0NGE3NjNmMmFiIiwidXNlcl9pZCI6MX0.wnhWx-dCyshILnZ3Z9WUgEuIsx4HoPT2ERgAaRrmPWc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/accounts/clients/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"accounts",
+						"clients",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a client",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMTI4ODYzLCJpYXQiOjE3MDMwNjg4NjMsImp0aSI6Ijc4M2ZlN2MxYTQ3NTRiMmE5NjJkMjQ0NGE3NjNmMmFiIiwidXNlcl9pZCI6MX0.wnhWx-dCyshILnZ3Z9WUgEuIsx4HoPT2ERgAaRrmPWc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "first_name",
+							"value": "premier_mod",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "client_mod",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "premiermodclient@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "0306060606",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "0606060606",
+							"type": "text"
+						},
+						{
+							"key": "company_name",
+							"value": "Company name",
+							"type": "text"
+						},
+						{
+							"key": "sales_contact",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/accounts/clients/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"accounts",
+						"clients",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a contract",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMTI4ODYzLCJpYXQiOjE3MDMwNjg4NjMsImp0aSI6Ijc4M2ZlN2MxYTQ3NTRiMmE5NjJkMjQ0NGE3NjNmMmFiIiwidXNlcl9pZCI6MX0.wnhWx-dCyshILnZ3Z9WUgEuIsx4HoPT2ERgAaRrmPWc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "payment_due",
+							"value": "2023-12-20T12:30:00Z",
+							"type": "text"
+						},
+						{
+							"key": "sales_contact",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "client",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/contracts/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"contracts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a contract",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMjI1ODMzLCJpYXQiOjE3MDMxNjU4MzMsImp0aSI6IjFhYzgwZDY2YWEzNzQ1YmZhNGNhNGJkMDczYWI0ZWQ3IiwidXNlcl9pZCI6NzZ9.5XjCVi3Hq2nFKXmRM4DfSIbpLXBdESqFvbUFh1TGEBI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "payment_due",
+							"value": "2024-12-20T12:30:00Z",
+							"type": "text"
+						},
+						{
+							"key": "sales_contact",
+							"value": "75",
+							"type": "text"
+						},
+						{
+							"key": "client",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/contracts/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"contracts",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List the contracts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMjI1ODMzLCJpYXQiOjE3MDMxNjU4MzMsImp0aSI6IjFhYzgwZDY2YWEzNzQ1YmZhNGNhNGJkMDczYWI0ZWQ3IiwidXNlcl9pZCI6NzZ9.5XjCVi3Hq2nFKXmRM4DfSIbpLXBdESqFvbUFh1TGEBI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/contracts/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"contracts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create an event",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMTI4ODYzLCJpYXQiOjE3MDMwNjg4NjMsImp0aSI6Ijc4M2ZlN2MxYTQ3NTRiMmE5NjJkMjQ0NGE3NjNmMmFiIiwidXNlcl9pZCI6MX0.wnhWx-dCyshILnZ3Z9WUgEuIsx4HoPT2ERgAaRrmPWc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "event_date",
+							"value": "2023-12-20T08:30:00Z",
+							"type": "text"
+						},
+						{
+							"key": "client",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "support_contact",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "event_status",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/events/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"events",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List the events",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMTI4ODYzLCJpYXQiOjE3MDMwNjg4NjMsImp0aSI6Ijc4M2ZlN2MxYTQ3NTRiMmE5NjJkMjQ0NGE3NjNmMmFiIiwidXNlcl9pZCI6MX0.wnhWx-dCyshILnZ3Z9WUgEuIsx4HoPT2ERgAaRrmPWc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/events/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"events",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an event",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMTI4ODYzLCJpYXQiOjE3MDMwNjg4NjMsImp0aSI6Ijc4M2ZlN2MxYTQ3NTRiMmE5NjJkMjQ0NGE3NjNmMmFiIiwidXNlcl9pZCI6MX0.wnhWx-dCyshILnZ3Z9WUgEuIsx4HoPT2ERgAaRrmPWc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "event_date",
+							"value": "2024-12-20T08:30:00Z",
+							"type": "text"
+						},
+						{
+							"key": "client",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "support_contact",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "event_status",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/events/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"events",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "model": "events.EventStatus",
+    "pk": 1,
+    "fields": {
+      "name": "En cours"
+    }
+  },
+  {
+    "model": "events.EventStatus",
+    "pk": 2,
+    "fields": {
+      "name": "Fini"
+    }
+  }
+]

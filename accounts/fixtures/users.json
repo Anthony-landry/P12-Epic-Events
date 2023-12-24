@@ -1,0 +1,58 @@
+[
+  {
+    "model": "accounts.CustomUser",
+    "pk": 1,
+    "fields": {
+      "first_name": "Superuser",
+      "last_name": "Superuser",
+      "email": "superuser@gmail.com",
+      "password": "pbkdf2_sha256$600000$GBXnIPqQagwRiQc3bzqhko$b5wOLztQBHsuIjUCq+btOtkATBDf9oNsRBT/MrVcP50=",
+      "is_superuser": true,
+      "is_staff": true,
+      "is_active": true,
+      "group": 1
+    }
+  },
+  {
+    "model": "accounts.CustomUser",
+    "pk": 2,
+    "fields": {
+      "first_name": "Gestion",
+      "last_name": "Gestion",
+      "email": "gestion@gmail.com",
+      "password": "pbkdf2_sha256$600000$GBXnIPqQagwRiQc3bzqhko$b5wOLztQBHsuIjUCq+btOtkATBDf9oNsRBT/MrVcP50=",
+      "group": 1,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true
+    }
+  },
+  {
+    "model": "accounts.CustomUser",
+    "pk": 3,
+    "fields": {
+      "first_name": "Vente",
+      "last_name": "Vente",
+      "email": "vente@gmail.com",
+      "password": "pbkdf2_sha256$600000$GBXnIPqQagwRiQc3bzqhko$b5wOLztQBHsuIjUCq+btOtkATBDf9oNsRBT/MrVcP50=",
+      "group": 2,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true
+    }
+  },
+  {
+    "model": "accounts.CustomUser",
+    "pk": 4,
+    "fields": {
+      "first_name": "Support",
+      "last_name": "Support",
+      "email": "support@gmail.com",
+      "password": "pbkdf2_sha256$600000$GBXnIPqQagwRiQc3bzqhko$b5wOLztQBHsuIjUCq+btOtkATBDf9oNsRBT/MrVcP50=",
+      "group": 3,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true
+    }
+  }
+]
