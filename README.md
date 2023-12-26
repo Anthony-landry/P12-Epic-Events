@@ -116,3 +116,15 @@ NB : éditer le puis enregistrer.
 13. Une collection postman vous est proposé avec tout les points de terminaison de API.
 
 Fichier nommé : **P12_OCR_CRM.postman_collection à ouvrir avec postman**.
+
+14. Les differents doits des groupes.
+
+**Gestion** : tous les droits
+
+**Vente** : Retrieve, Create, Update pour Client attribués
+**Vente** : Retrieve, Create pour Event attribués
+**Vente** : Create, Retrieve, Update pour Contract attribués
+
+**Support** : Retrieve pour Client  attribués
+**Support** : Retrieve, Update pour Event attribués (Update until event over)
+**Suppor**t : Retrieve pour Contract 
