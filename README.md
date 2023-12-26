@@ -57,6 +57,10 @@ Ensuite, suivez ces étapes pour installer et exécuter le programme :
     ```bash
     python manage.py migrate
     ```
+### Panel d'administration
+
+- Aller sur `http://localhost:8000/admin`
+- Connectez-vous avec le mail `admin@gmail.com`, exemple de mot de passe `Abcd.1234!`
 
 ### Applicquer les Fixtures, création de donnée pré-rempli
 
@@ -95,11 +99,6 @@ NB : éditer le puis enregistrer.
 ```terminal
 python .\manage.py createsuperuser
 ```
-
-### Panel d'administration
-
-- Aller sur `http://localhost:8000/admin`
-- Connectez-vous avec le mail `admin@gmail.com`, mot de passe `Abcd.1234!`
 
 11. Vous pouvez maintenant lancer le script principal avec la commande :
     
