@@ -123,7 +123,6 @@ Fichier nommé : **P12_OCR_CRM.postman_collection à ouvrir avec postman**.
 **Vente** : Retrieve, Create, Update pour Client attribués\
 **Vente** : Retrieve, Create pour Event attribués\
 **Vente** : Create, Retrieve, Update pour Contract attribués\
-
-**Support** : Retrieve pour Client  attribués
-**Support** : Retrieve, Update pour Event attribués (Update until event over)
-**Suppor**t : Retrieve pour Contract 
+**Support** : Retrieve pour Client  attribués\
+**Support** : Retrieve, Update pour Event attribués (Update until event over)\
+**Suppor**t : Retrieve pour Contract
