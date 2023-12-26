@@ -22,8 +22,8 @@
       "email": "gestion@gmail.com",
       "password": "pbkdf2_sha256$600000$so9TndstsyAHv6D53ex70Y$YIIl3m/kxsKPSQgJkx+Fde1Tq/S+bI0+GiQynTHwO6o=",
       "group": 1,
-      "is_superuser": false,
-      "is_staff": false,
+      "is_superuser": true,
+      "is_staff": true,
       "is_active": true
     }
   },
