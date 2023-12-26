@@ -84,7 +84,7 @@ python manage.py loaddata accounts/fixtures/users.json
 python manage.py loaddata events/fixtures/event_status.json
 ```
 
-1. Remplir le fichier .env :
+10. Remplir le fichier .env :
     
 un fichier .env ce trouve à la racine du pojet 
 
@@ -101,18 +101,18 @@ DSN="METTRE VOTRE CLE DSN DE SENTRY.IO"
 ```
 NB : éditer le puis enregistrer.
 
-10. Vous pouvez maintenant lancer le script principal avec la commande :
+11. Vous pouvez maintenant lancer le script principal avec la commande :
     
     ```bash
     python manage.py runserver
     ```
 
-11. Vous pouvez ensuite utiliser l'applicaton à l'adresse suivante:
+12. Vous pouvez ensuite utiliser l'applicaton à l'adresse suivante:
     
     ```bash
     http://127.0.0.1:8000/
     ```
 
-12. Une collection postman vous est proposé avec tout les points de terminaison de API.
+13. Une collection postman vous est proposé avec tout les points de terminaison de API.
 
 Fichier nommé : **P12_OCR_CRM.postman_collection à ouvrir avec postman**.
