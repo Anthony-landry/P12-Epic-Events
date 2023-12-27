@@ -10,9 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
-# import sentry_sdk
-# from django.core.exceptions import ImproperlyConfigured
-# from sentry_sdk.integrations.django import DjangoIntegration
+import sentry_sdk
+from django.core.exceptions import ImproperlyConfigured
+from sentry_sdk.integrations.django import DjangoIntegration
 import datetime
 
 from pathlib import Path
@@ -167,28 +167,30 @@ SIMPLE_JWT = {
 AUTH_USER_MODEL = "accounts.CustomUser"
 
 
-# def main():
-#     try:
-#         if env('DSN'):
-#             sentry_sdk.init(
-#                 dsn=env('DSN'),
-#                 integrations=[DjangoIntegration(
-#                     transaction_style='function_name',
-#                 )],
-#
-#                 # Set traces_sample_rate to 1.0 to capture 100%
-#                 # of transactions for performance monitoring.
-#                 # We recommend adjusting this value in production.
-#                 traces_sample_rate=1.0,
-#
-#                 # Set profiles_sample_rate to 1.0 to profile 100%
-#                 # of sampled transactions.
-#                 # We recommend adjusting this value in production.
-#                 profiles_sample_rate=1.0,
-#
-#                 # # If you wish to associate users to errors (assuming you are using
-#                 # # django.contrib.auth) you may enable sending PII data.
-#                 # send_default_pii=True
-#             )
-#     except (ImproperlyConfigured, sentry_sdk.utils.BadDsn):
-#         pass
+def main():
+    try:
+        if env('DSN'):
+            sentry_sdk.init(
+                dsn=env('DSN'),
+                integrations=[DjangoIntegration(
+                    transaction_style='function_name',
+                )],
+
+                # Set traces_sample_rate to 1.0 to capture 100%
+                # of transactions for performance monitoring.
+                # We recommend adjusting this value in production.
+                traces_sample_rate=1.0,
+
+                # Set profiles_sample_rate to 1.0 to profile 100%
+                # of sampled transactions.
+                # We recommend adjusting this value in production.
+                profiles_sample_rate=1.0,
+
+                # # If you wish to associate users to errors (assuming you are using
+                # # django.contrib.auth) you may enable sending PII data.
+                # send_default_pii=True
+            )
+    except (ImproperlyConfigured, sentry_sdk.utils.BadDsn):
+        pass
+
+main()
