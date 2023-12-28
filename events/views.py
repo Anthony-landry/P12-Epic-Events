@@ -34,7 +34,7 @@ class EventViewSet(viewsets.ModelViewSet):
             return Event.objects.all()
 
         # Tout le monde peut accéder à tous les évènements en en lecture seule
-        if self.action == 'list' or self.action =='retrieve':
+        if self.action == 'list' or self.action == 'retrieve':
             return Event.objects.all()
 
         # Accès restreint pour la modification
@@ -42,8 +42,10 @@ class EventViewSet(viewsets.ModelViewSet):
             if self.request.user.group.name == "Support":
                 # Le membre du support a accès qu'aux évènements qu'il gère
 
-                # On utilise le related name "events_handled_by_this_support_contact" dans le champ "support_contact" du modèle Event
-                # Cela nous permet d'accéder aux évènements gérés par le support_contact (qui est un user donc un request.user!)
+                # On utilise le related name "events_handled_by_this_support_contact"
+                # dans le champ "support_contact" du modèle Event
+                # Cela nous permet d'accéder aux évènements gérés par le support_contact
+                # (qui est un user donc un request.user!)
                 # Pour cela, il faut faire : request.user.events_handled_by_this_support_contact
                 # related_name est très utile quand un champ Foreign Key apparait que dans un modèle (ici, Event)
                 # alors que ça lie bien deux modèles (ici, Event et CustomUser)

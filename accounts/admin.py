@@ -6,10 +6,9 @@ from accounts.models import CustomUser, Client
 
 
 class CustomUserAdmin(UserAdmin):
-
-    ordering = ("-id",) # Ordonner les utilisateurs par id par ordre décroissant pour avoir les plus récents en haut
-    list_display = ('email', 'group', 'id') # Informations qui seront affichées dans la rubrique utilisateurs
-    list_filter = ('group',) # Pour filter par groupe
+    ordering = ("-id",)  # Ordonner les utilisateurs par id par ordre décroissant pour avoir les plus récents en haut
+    list_display = ('email', 'group', 'id')  # Informations qui seront affichées dans la rubrique utilisateurs
+    list_filter = ('group',)  # Pour filter par groupe
 
     # Personnalisation des champs apparaissant lorsqu'on clique sur un utilisateur
     fieldsets = (
@@ -27,12 +26,16 @@ class CustomUserAdmin(UserAdmin):
         }),
     )
 
-# Enregistrement du modèle utilisateur personnalisé (CustomUser) et de la classe CustomUserAdmin gérant son affichage dans l'admin
+
+# Enregistrement du modèle utilisateur personnalisé (CustomUser)
+# et de la classe CustomUserAdmin gérant son affichage dans l'admin
 admin.site.register(CustomUser, CustomUserAdmin)
 
+
 class ClientAdmin(admin.ModelAdmin):
-    ordering = ("-id",) # Ordonner les clients par id par ordre décroissant pour avoir les plus récents en haut
-    list_display = ('email', 'id') # Informations qui seront affichées dans la rubrique clients
+    ordering = ("-id",)  # Ordonner les clients par id par ordre décroissant pour avoir les plus récents en haut
+    list_display = ('email', 'id')  # Informations qui seront affichées dans la rubrique clients
     form = ClientForm
+
 
 admin.site.register(Client, ClientAdmin)

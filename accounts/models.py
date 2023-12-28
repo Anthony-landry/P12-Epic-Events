@@ -4,8 +4,8 @@ from django.contrib.auth.models import AbstractUser, Group
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-class CustomUserManager(BaseUserManager):
 
+class CustomUserManager(BaseUserManager):
 
     def create_superuser(self, email, first_name, last_name, password, **kwargs):
 
@@ -34,16 +34,15 @@ class CustomUserManager(BaseUserManager):
         user.save()
 
 
-
 # Personnalisation du modèle User de Django pour ajouter l'appartenance à un groupe Django
 class CustomUser(AbstractUser):
-
-    username = None # On utilisera l'email plutôt que le username
+    username = None  # On utilisera l'email plutôt que le username
     email = models.EmailField(max_length=100, unique=True, verbose_name="Email")
 
     # On associe un groupe à chaque utilisateur
     group = models.ForeignKey(Group, on_delete=models.DO_NOTHING, related_name="custom_users_in_the_group")
-    # DO_NOTHING et pas CASCADE car on ne veut pas que l'utilisateur (CustomUser) soit supprimé si un groupe est supprimé
+    # DO_NOTHING et pas CASCADE car on ne veut pas que l'utilisateur
+    # (CustomUser) soit supprimé si un groupe est supprimé
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["first_name", "last_name"]
@@ -68,16 +67,20 @@ class CustomUser(AbstractUser):
             self.is_active = True
 
         super().save(*args, **kwargs)
+
+
 @receiver(post_save, sender=CustomUser)
 def add_to_group(instance, **kwargs):
     # Ajouter l'utilisateur au groupe Django qui est selectionné à chaque sauvegarde.
-    # En effet, sans ceci, le group est simplement sélectionné pour le CustomUser mais il n'est pas ajouté pour de vrai dans un groupe Django
+    # En effet, sans ceci, le group est simplement sélectionné pour le CustomUser
+    # mais il n'est pas ajouté pour de vrai dans un groupe Django
 
     # On utilise le signal "post_save" car on ne peut pas le faire dans la méthode save à la création d'un objet
     # En effet, on ne peut pas ajouter un utilisateur pas encore créé, ce dernier est créé qu'après le save()
     # Donc à chaque save, cette fonction est appelée
 
     instance.group.user_set.add(instance)
+
 
 class Client(models.Model):
     first_name = models.CharField(max_length=25, verbose_name="First Name")
@@ -88,7 +91,9 @@ class Client(models.Model):
     company_name = models.CharField(max_length=250, verbose_name="Company Name")
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
-    sales_contact = models.ForeignKey(to=CustomUser, on_delete=models.DO_NOTHING, related_name="clients_represented_by_this_sales_contact")
+    sales_contact = models.ForeignKey(to=CustomUser, on_delete=models.DO_NOTHING,
+                                      related_name="clients_represented_by_this_sales_contact")
+
     # DO_NOTHING et pas CASCADE car on ne veut pas que le client soit supprimé si l'utilisateur est supprimé
 
     def __str__(self):

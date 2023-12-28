@@ -30,7 +30,7 @@ class ContractViewSet(viewsets.ModelViewSet):
             return Contract.objects.all()
 
         # Tout le monde peut accéder à tous les contrats en en lecture seule
-        if self.action == 'list' or self.action =='retrieve':
+        if self.action == 'list' or self.action == 'retrieve':
             return Contract.objects.all()
 
         # Accès restreint pour la modification
@@ -38,8 +38,10 @@ class ContractViewSet(viewsets.ModelViewSet):
             if self.request.user.group.name == "Vente":
                 # Le membre de la vente a accès qu'aux contrats qu'il gère
 
-                # On utilise le related name "contracts_handled_by_the_sales_contact" dans le champ "sales_contact" du modèle Contract
-                # Cela nous permet d'accéder aux contrats gérés par le sales_contact (qui est un user donc un request.user!)
+                # On utilise le related name "contracts_handled_by_the_sales_contact"
+                # dans le champ "sales_contact" du modèle Contract
+                # Cela nous permet d'accéder aux contrats gérés par le sales_contact
+                # (qui est un user donc un request.user!)
                 # Pour cela, il faut faire : request.user.contracts_handled_by_the_sales_contact
                 # related_name est très utile quand un champ Foreign Key apparait que dans un modèle (ici, Contract)
                 # alors que ça lie bien deux modèles (ici, Contract et CustomUser)

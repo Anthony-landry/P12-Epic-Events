@@ -9,7 +9,7 @@ from rest_framework_simplejwt.views import (
 
 
 def trigger_error(request):
-    division_by_zero = 1 / 0
+    print(1/0)
 
 
 urlpatterns = [

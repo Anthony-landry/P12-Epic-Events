@@ -19,6 +19,8 @@ from pathlib import Path
 
 import environ
 
+from sentry_sdk.integrations.django import DjangoIntegration
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -189,9 +191,10 @@ def main():
 
                 # # If you wish to associate users to errors (assuming you are using
                 # # django.contrib.auth) you may enable sending PII data.
-                # send_default_pii=True
+                send_default_pii=True
             )
     except (ImproperlyConfigured, sentry_sdk.utils.BadDsn):
         pass
+
 
 main()

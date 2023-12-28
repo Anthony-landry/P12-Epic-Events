@@ -41,6 +41,7 @@ class UserSerializer(serializers.ModelSerializer):
             user.save()
         return user
 
+
 class ClientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Client

@@ -2,8 +2,7 @@ from django.urls import path, include
 
 from contracts.views import ContractViewSet  # viewsets
 
-from rest_framework.routers import DefaultRouter # router
-
+from rest_framework.routers import DefaultRouter  # router
 
 router = DefaultRouter()
 router.register("", ContractViewSet, basename='contracts')

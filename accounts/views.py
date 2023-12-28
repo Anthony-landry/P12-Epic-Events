@@ -18,6 +18,12 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     permission_classes = [IsManagerPermission]
 
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_destroy(instance)
+        return Response({'message': "L'utilisateur a bien été supprimé"}, status=status.HTTP_204_NO_CONTENT)
+
+
 class ClientViewSet(viewsets.ModelViewSet):
     serializer_class = ClientSerializer
     filter_backends = [DjangoFilterBackend]
@@ -51,7 +57,8 @@ class ClientViewSet(viewsets.ModelViewSet):
         elif self.action == 'update' or self.action == 'partial_update':
             if self.request.user.group.name == "Vente":
                 return self.request.user.clients_represented_by_this_sales_contact
-            # Pas besoin de checker le Support puisqu'il n'a pas accès à la modification ou la suppression (cf permissions)
+            # Pas besoin de checker le Support puisqu'il
+            # n'a pas accès à la modification ou la suppression (cf permissions)
             else:
                 # Si un nouveau groupe est créé et qu'on ne rentre pas dans les if,
                 # il ne faut rien retourner : pas de faille de sécurité
@@ -63,7 +70,6 @@ class ClientViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
-
             # Restreindre le queryset pour le champ "sales_contact" aux utilisateurs qui sont dans le groupe "Vente"
             sales_group = Group.objects.get(name='Vente')
             serializer.fields['sales_contact'].queryset = sales_group.user_set.all()
@@ -81,4 +87,3 @@ class ClientViewSet(viewsets.ModelViewSet):
     #     serializer.save()
     #
     #     return Response(serializer.data)
-
