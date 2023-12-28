@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group
+from django_filters.rest_framework import DjangoFilterBackend
 
 from rest_framework import viewsets, status
 from rest_framework.response import Response
@@ -7,6 +8,7 @@ from rest_framework.response import Response
 from accounts.models import Client
 from accounts.permissions import IsManagerPermission, IsSalesPermission, IsSupportPermission
 from accounts.serializers import UserSerializer, ClientSerializer
+from .filters import ClientFilter
 
 User = get_user_model()
 
@@ -18,6 +20,9 @@ class UserViewSet(viewsets.ModelViewSet):
 
 class ClientViewSet(viewsets.ModelViewSet):
     serializer_class = ClientSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = ClientFilter
+
     # queryset = Client.objects.all()
 
     def get_permissions(self):

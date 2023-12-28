@@ -1,12 +1,16 @@
 from rest_framework import viewsets
+from django_filters.rest_framework import DjangoFilterBackend
 
 from accounts.permissions import IsManagerPermission, IsSalesPermission, IsSupportPermission
 from events.models import Event
 from events.serializers import EventSerializer
+from .filters import EventFilter
 
 
 class EventViewSet(viewsets.ModelViewSet):
     serializer_class = EventSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = EventFilter
 
     def get_permissions(self):
         permission_classes = []

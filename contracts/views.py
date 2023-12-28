@@ -1,12 +1,16 @@
 from rest_framework import viewsets
+from django_filters.rest_framework import DjangoFilterBackend
 
 from accounts.permissions import IsManagerPermission, IsSalesPermission, IsSupportPermission
 from contracts.models import Contract
 from contracts.serializers import ContractSerializer
+from .filters import ContractFilter
 
 
 class ContractViewSet(viewsets.ModelViewSet):
     serializer_class = ContractSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = ContractFilter
 
     def get_permissions(self):
         permission_classes = []
