@@ -3,8 +3,6 @@
 ![projet 12 Développez une architecture back-end sécurisée avec Python et SQL](.readme/Landry_anthony_P12_Epic_Event_openclassrooms_developpeur_application_python.png)
 
 Projet réalisé dans le cadre de la formation OpenClassrooms Développeur d'Applications Python.
-Il s'agit d'une application web "MVC" réalisée avec Django.
-L'application LitReviews, est un réseau social permettant de demander et poster des critiques de livres.
 
 ## Installation
 
